@@ -25,7 +25,7 @@ python-dateutil==2.7.3
 
 pyOpenSSL==19.1.0
 
-heroku==7.60.1
+heroku==0.1.4
 
 python-socketio==5.5.0
 

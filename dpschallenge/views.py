@@ -8,12 +8,12 @@ from apiapp.models import Accident
 
 
 class TesView(APIView):
-    def get(self, request, *args, **kwargs):
-        data = {
-            'username': 'admin',
-            'years_active': 10
-        }
-        return Response(data)
+    # def get(self, request, *args, **kwargs):
+    #     data = {
+    #         'username': 'admin',
+    #         'years_active': 10
+    #     }
+    #     return Response(data)
 
     def post(self, request, *args, **kwargs):
         serializer = AccidentSerializer(data=request.data)

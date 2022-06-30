@@ -7,7 +7,7 @@ from apiapp.serializers import AccidentSerializer
 from apiapp.models import Accident
 
 
-class TesView(APIView):
+class AccidentVIEW(APIView):
     # def get(self, request, *args, **kwargs):
     #     data = {
     #         'username': 'admin',

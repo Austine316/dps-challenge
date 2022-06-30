@@ -21,6 +21,7 @@ pathlib2==2.3.5
 pathtools==0.1.2
 Pillow==7.0.0
 psycopg2==2.9.3
+python-dateutil==2.7.3
 
 pyOpenSSL==19.1.0
 

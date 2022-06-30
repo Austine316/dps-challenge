@@ -24,7 +24,7 @@ class AccidentVIEW(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            print(serializer)
+            # print(serializer)
 
             year = serializer.data['year']
             month = serializer.data['month']
@@ -32,7 +32,7 @@ class AccidentVIEW(APIView):
             cond = (prediction['year'] == int(year)) & (
                 prediction['month'] == int(month))
             result = prediction[cond].Predictions.values[0]
-            print(result)
+            result = {"prediction": result}
 
             return Response(result)
 

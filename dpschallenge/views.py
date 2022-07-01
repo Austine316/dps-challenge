@@ -8,6 +8,38 @@ from apiapp.serializers import AccidentSerializer
 from apiapp.models import Accident
 
 
+# class AccidentVIEW(APIView):
+#     # def get(self, request, *args, **kwargs):
+#     #     data = {
+#     #         'username': 'admin',
+#     #         'years_active': 10
+#     #     }
+#     #     return Response(data)
+
+#     def post(self, request, *args, **kwargs):
+#         serializer = AccidentSerializer(data=request.data)
+
+#         df = pl.read_csv('prediction.csv', has_header=True)
+
+#         # print(prediction)
+
+#         if serializer.is_valid():
+#             serializer.save()
+#             # print(serializer)
+
+#             year = int(serializer.data['year'])
+#             month = int(serializer.data['month'])
+
+#             cond = (df['year'] == year) & (
+#                 df['month'] == month)
+#             result = df[cond].Predictions[0]
+#             result = {"prediction": round(result, 2)}
+
+#             return Response(result)
+
+#         return Response(serializer.errors)
+
+
 class AccidentVIEW(APIView):
     # def get(self, request, *args, **kwargs):
     #     data = {
@@ -17,7 +49,13 @@ class AccidentVIEW(APIView):
     #     return Response(data)
 
     def post(self, request, *args, **kwargs):
-        serializer = AccidentSerializer(data=request.data)
+
+        data = {
+            'year': request.data.get('year'),
+            'month': request.data.get('month'),
+        }
+
+        serializer = AccidentSerializer(data=data)
 
         df = pl.read_csv('prediction.csv', has_header=True)
 
@@ -25,13 +63,9 @@ class AccidentVIEW(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            # print(serializer)
 
-            year = int(serializer.data['year'])
-            month = int(serializer.data['month'])
-
-            cond = (df['year'] == year) & (
-                df['month'] == month)
+            cond = (df['year'] == data['year']) & (
+                df['month'] == data['month'])
             result = df[cond].Predictions[0]
             result = {"prediction": round(result, 2)}
 

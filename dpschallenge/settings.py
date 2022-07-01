@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h9p2-2fa#x_azqjl212mp0hel2e_y)a4i@3hy20q8nw+eedcih
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 # 'dps-predict.herokuapp.com', '127.0.0.1'
 
 

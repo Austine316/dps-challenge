@@ -39,6 +39,9 @@ class AccidentVIEW(APIView):
 
         return Response(serializer.errors)
 
+    # def get_rendered_html_form(self, request, *args, **kwargs):
+    #     return render(request, 'index.html')
+
 
 # class AccidentVIEW(APIView):
 #     def post(self, request, *args, **kwargs):

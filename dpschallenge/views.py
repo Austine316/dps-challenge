@@ -41,13 +41,6 @@ from apiapp.models import Accident
 
 
 class AccidentVIEW(APIView):
-    # def get(self, request, *args, **kwargs):
-    #     data = {
-    #         'username': 'admin',
-    #         'years_active': 10
-    #     }
-    #     return Response(data)
-
     def post(self, request, *args, **kwargs):
 
         data = {
@@ -59,13 +52,11 @@ class AccidentVIEW(APIView):
 
         df = pl.read_csv('prediction.csv', has_header=True)
 
-        # print(prediction)
-
         if serializer.is_valid():
             serializer.save()
 
-            cond = (df['year'] == data['year']) & (
-                df['month'] == data['month'])
+            cond = (df['year'] == int(data['year'])) & (
+                df['month'] == int(data['month']))
             result = df[cond].Predictions[0]
             result = {"prediction": round(result, 2)}
 

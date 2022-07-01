@@ -5,6 +5,6 @@ from .models import Accident
 class AccidentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Accident
-        fields = [
+        fields = (
             'year', 'month'
-        ]
+        )

@@ -9,6 +9,7 @@ from apiapp.models import Accident
 
 
 class AccidentVIEW(APIView):
+
     # def get(self, request, *args, **kwargs):
     #     data = {
     #         'username': 'admin',
@@ -38,9 +39,6 @@ class AccidentVIEW(APIView):
             return Response(result)
 
         return Response(serializer.errors)
-
-    # def get_rendered_html_form(self, request, *args, **kwargs):
-    #     return render(request, 'index.html')
 
 
 # class AccidentVIEW(APIView):

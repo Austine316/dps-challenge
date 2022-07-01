@@ -38,28 +38,3 @@ class AccidentVIEW(APIView):
             return Response(result)
 
         return Response(serializer.errors)
-
-
-# class AccidentVIEW(APIView):
-#     def post(self, request, *args, **kwargs):
-
-#         data = {
-#             'year': request.data.get('year'),
-#             'month': request.data.get('month'),
-#         }
-
-#         serializer = AccidentSerializer(data=data)
-
-#         df = pl.read_csv('prediction.csv', has_header=True)
-
-#         if serializer.is_valid():
-#             serializer.save()
-
-#             cond = (df['year'] == int(data['year'])) & (
-#                 df['month'] == int(data['month']))
-#             result = df[cond].Predictions[0]
-#             result = {"prediction": round(result, 2)}
-
-#             return Response(result)
-
-#         return Response(serializer.errors)
